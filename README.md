@@ -1,186 +1,115 @@
-# DCIT 204 – Lab 2: Interactive Array Algorithms
+# Lab 2 — Array Algorithms
 
-## Objective
+**Course:** DCIT 204 — Data Structures and Algorithms I
+**Student:** Clifford
+**Student ID:** 22381705
+**Branch:** clifford_22381705
 
-> **This assignment is due on Wednesday 1:10pm**
+## Overview
 
-In this lab, you will build **interactive console applications** by implementing two fundamental array algorithms discussed in class:
+This lab implements two fundamental array algorithms as interactive
+console applications using Java's `Scanner` class for all input:
 
-* **Find Maximum Value**
-* **Pair Sum (Brute Force Search)**
+1. **FindMax.java** — Finds the maximum value in a user-supplied
+   array and reports the index at which it occurs.
+2. **PairSum.java** — Uses a brute-force (nested loop) search to
+   find a unique pair of array elements whose sum equals a
+   user-supplied target value.
 
-Unlike previous examples where arrays and target values were hardcoded, this assignment requires your programs to collect all necessary input from the user using Java's `Scanner` class.
+## Files
 
-The goal is to strengthen your understanding of:
-
-* User input handling
-* Arrays
-* Loops
-* Brute-force searching
-* Time complexity
-* Writing clean, readable Java code
-
-
----
-
-# Task 1: Interactive Find Maximum Algorithm
-
-Write a Java program that finds the **largest value** in an array **and its index**.
-
-## Requirements
-
-Your program must:
-
-1. Prompt the user to enter the number of elements in the array.
-2. Create an integer array of that size.
-3. Prompt the user to enter each array element one at a time.
-4. Search through the array to determine:
-
-   * The maximum value
-   * The index where the maximum value occurs
-5. Display the results in a clear and professional format.
-
----
-
----
-
-# Task 2: Interactive Pair Sum (Brute Force)
-
-Write a Java program that searches for **a unique pair of numbers** whose sum equals a target value.
-
-## Requirements
-
-Your program must:
-
-1. Prompt the user for the array size.
-2. Accept each array element from the user.
-3. Prompt the user to enter a **Target Sum**.
-4. Use the **Brute Force (Nested Loop)** algorithm to search for a matching pair.
-5. If a pair is found, display:
-
-   * Both indices
-   * Their values
-   * The equation
-6. If no pair exists, print an appropriate message.
-
----
-
----
-
-# 📂 Project Structure
-
-Your project should contain the following Java files:
-
-```text
+```
 Lab2/
-│
 ├── FindMax.java
 ├── PairSum.java
 └── README.md
 ```
 
----
+## How to Compile and Run
 
-# Submission Instructions
-
-Follow the Git workflow below exactly.
-
----
-
-## Step 1 — Fork the Repository
-
-Fork the official repository:
-
-```text
-https://github.com/DCIT204-2026/DCIT204_LABS-2.git
-```
-
----
-
-## Step 2 — Clone Your Fork
+From inside the `Lab2` directory:
 
 ```bash
-git clone <YOUR_FORK_URL>
+javac FindMax.java
+java FindMax
 ```
-
----
-
-## Step 3 — Create Your Branch
-
-Create a new branch using the format:
-
-```text
-firstName_StudentId
-```
-
-Example:
 
 ```bash
-git checkout -b john_10912345
+javac PairSum.java
+java PairSum
 ```
 
-**Branch Naming Format**
+## Task 1: Find Maximum — Algorithm Summary
 
-```text
-firstname_studentID
+- Prompts the user for the array size, then each element.
+- Performs a single linear scan through the array, tracking the
+  largest value seen so far and its index.
+- **Time Complexity:** O(n) — each element is visited exactly once.
+- **Space Complexity:** O(n) — for storing the input array.
+
+### Sample Run
+
+```
+Enter the number of elements in the array: 5
+Enter 5 integer values:
+  Element[0]: 3
+  Element[1]: 8
+  Element[2]: 1
+  Element[3]: 9
+  Element[4]: 4
+
+===== Find Maximum: Results =====
+Array Entered: [3, 8, 1, 9, 4]
+Maximum Value : 9
+Found at Index: 3
+==================================
 ```
 
-Examples
+## Task 2: Pair Sum (Brute Force) — Algorithm Summary
 
-```text
-joseph_11023456
-mary_10987654
-john_10876543
+- Prompts the user for the array size, each element, and a target
+  sum.
+- Uses two nested loops to check every possible pair (i, j), where
+  i < j, stopping as soon as a matching pair is found.
+- **Time Complexity:** O(n²) — worst case checks every pair.
+- **Space Complexity:** O(n) — for storing the input array.
+
+### Sample Run
+
+```
+Enter the number of elements in the array: 5
+Enter 5 integer values:
+  Element[0]: 2
+  Element[1]: 7
+  Element[2]: 11
+  Element[3]: 15
+  Element[4]: 3
+Enter the Target Sum: 9
+
+===== Pair Sum (Brute Force): Results =====
+Pair Found!
+Index A: 0  ->  Value: 2
+Index B: 1  ->  Value: 7
+Equation: 2 + 7 = 9
+=============================================
 ```
 
----
+### No-Match Example
 
-## Step 4 — Complete the Assignment
+```
+Enter the Target Sum: 100
 
-Implement both Java programs.
-
----
-
-## Step 5 — Commit Your Work
-
-```bash
-git add .
-git commit -m "Completed Lab 2 Array Algorithms"
+===== Pair Sum (Brute Force): Results =====
+No pair was found that sums to 100.
+=============================================
 ```
 
----
+## Learning Outcomes
 
-## Step 6 — Push Your Branch
-
-```bash
-git push origin firstName_StudentId
-```
-
-Example:
-
-```bash
-git push origin john_10912345
-```
-
----
-
-
-# Learning Outcomes
-
-After completing this lab, you should be able to:
-
-* Work confidently with arrays.
-* Accept user input using `Scanner`.
-* Implement a linear search algorithm.
-* Implement a brute-force pair search.
-* Analyze algorithm time complexity.
-* Write clean, maintainable Java code.
-* Use Git and GitHub for version control.
-
----
-
-## Best of Luck!
-
-Take your time, write clean code, test your programs thoroughly, and remember:
-
-> **Correctness first, then readability, then efficiency.**
+- Working confidently with arrays.
+- Accepting user input using `Scanner`.
+- Implementing linear search.
+- Implementing brute-force pair search.
+- Analyzing algorithm time complexity (O(n) vs O(n²)).
+- Writing clean, maintainable Java code.
+- Using Git and GitHub for version control.
